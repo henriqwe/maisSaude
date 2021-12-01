@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 
 export function Register() {
   
+  const [nome,setNome]= useState('')
+  const [email,setEmail]= useState('')
+  const [senha,setSenha]= useState('')
+
   
 
   return (
@@ -20,16 +24,36 @@ export function Register() {
               type="text"
               placeholder="Nome"
               className="mt-2 mb-2"
+              value = {nome}
+              onChange={(e)=>{
+                setNome(e.target.value)
+                
+              }}
+              required
+            
             />
             <Form.Control
               type="email"
               placeholder="E-mail"
               className="mt-2 mb-2"
+              value = {email}
+
+              onChange={(e)=>{
+                setEmail(e.target.value)
+              }}
+              required
+
             />
             <Form.Control
               type="password"
               placeholder="Senha"
               className="mb-2"
+              value = {senha}
+              onChange={(e)=>{
+                setSenha(e.target.value)
+              }}
+              required
+
             />
           </Form.Group>
           <Form.Group className="d-flex justify-content-center">
