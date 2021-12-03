@@ -1,8 +1,8 @@
 #PROJETO TO-DO (FRONT) 
 
-- FontAwesome (Icones) -- NÃO INSTALADO
-- React Router Dom (Roteamento) ok
-- React BootStrap (CSS) ok
-- React-Toastify (Toast) ok
-- Axios (Conexão com API) ok
-- Date-fns (Formatação de datas) ok
+- reactIcons (Icones)
+- React Router Dom (Roteamento) 
+- React BootStrap (CSS) 
+- React-Toastify (Toast) 
+- Axios (Conexão com API) 
+- Date-fns (Formatação de datas) 

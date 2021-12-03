@@ -50,6 +50,7 @@ export function Login() {
             <Form.Control
               type="email"
               name='email'
+              autoComplete="email"
               value={formLogin.email}
               placeholder="E-mail"
               className="mt-2 mb-2"
@@ -60,6 +61,7 @@ export function Login() {
             <Form.Control
               type="password"
               name='senha'
+              autoComplete="password"
               value={formLogin.senha}
               placeholder="Senha"
               className="mb-2"
