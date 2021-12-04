@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import api from '../../service/api'
 import { ToastContainer, toast, Slide } from 'react-toastify';
+import { UserContext } from "../../context/UserContext";
 
 export function Login() {
 
+  const { setUser } = useContext(UserContext)
   const [formLogin, setFormLogin] = useState({ email: '', senha: '' })
-  const [isFetching,setIsFetching] = useState(false)
+  const [isFetching, setIsFetching] = useState(false)
 
   function handlerForm(e) {
     setFormLogin({ ...formLogin, [e.name]: e.value })
@@ -16,10 +18,10 @@ export function Login() {
 
   async function authLogin(e) {
     e.preventDefault()
-    
+
     setIsFetching(true)
-    try{
-      await toast.promise(api.post('api/auth', formLogin),{
+    try {
+      await toast.promise(api.post('api/auth', formLogin).then((res) => {setUser(res.data)}), {
         transition: Slide,
         pending: {
           render: 'Verificando...',
@@ -27,7 +29,7 @@ export function Login() {
           position: "bottom-right"
         },
         success: {
-          render: 'Seja bem vindo',
+          render: `Seja bem vindo`,
           theme: "colored",
           position: "bottom-right"
         },
@@ -37,7 +39,7 @@ export function Login() {
           position: "bottom-right"
         }
       });
-    }catch(error){}
+    } catch (error) { }
     setIsFetching(false)
   }
 

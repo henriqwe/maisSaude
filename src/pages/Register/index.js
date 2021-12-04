@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./Register.css";
 import { Form, Button, InputGroup, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { FaAngleLeft, FaEyeSlash, FaEye, FaCheck } from "react-icons/fa";
 import api from '../../service/api'
 import { ToastContainer, toast, Slide } from 'react-toastify';
+import { UserContext } from "../../context/UserContext";
 
 export function Register() {
 
+    const { setUser } = useContext(UserContext)
     const [form, setForm] = useState({ nome: '', email: '', senha: '', senhaConf: '' })
     const [showPass, setShowPass] = useState(false)
     const [isFetching, setIsFetching] = useState(false)
@@ -32,7 +34,7 @@ export function Register() {
         if (form.senha === form.senhaConf) {
             setIsFetching(true)
             try {
-                await toast.promise(api.post('api/createUser', form), {
+                await toast.promise(api.post('api/createUser', form).then((res) => {setUser(res.data)}), {
                     transition: Slide,
                     pending: {
                         render: 'Verificando...',
