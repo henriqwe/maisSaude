@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import api from '../../service/api'
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import { UserContext } from "../../context/UserContext";
@@ -11,6 +11,7 @@ export function Login() {
   const { setUser } = useContext(UserContext)
   const [formLogin, setFormLogin] = useState({ email: '', senha: '' })
   const [isFetching, setIsFetching] = useState(false)
+  const history = useHistory()
 
   function handlerForm(e) {
     setFormLogin({ ...formLogin, [e.name]: e.value })
@@ -21,7 +22,10 @@ export function Login() {
 
     setIsFetching(true)
     try {
-      await toast.promise(api.post('api/auth', formLogin).then((res) => {setUser(res.data)}), {
+      await toast.promise(api.post('api/auth', formLogin).then(async (res) => {
+        setUser(res.data)
+        history.push("/dashboard")
+      }), {
         transition: Slide,
         pending: {
           render: 'Verificando...',

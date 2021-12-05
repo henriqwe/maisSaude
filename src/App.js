@@ -4,9 +4,9 @@ import { UserProvider } from "./context/UserContext";
 function App() {
   return (
     <>
-      <UserProvider>
-        <Routes />
-      </UserProvider>
+        <UserProvider>
+          <Routes />
+        </UserProvider>
     </>
   );
 }
