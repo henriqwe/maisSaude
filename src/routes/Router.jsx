@@ -5,7 +5,6 @@ import { Route, Redirect } from "react-router";
 
 export default function RouterWapper({ component: Component, isPrivate, ...rest }) {
     const {user} = useContext(UserContext)
-    console.log(user)
 
     if(!user && isPrivate){
         return(
