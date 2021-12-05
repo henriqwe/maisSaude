@@ -1,14 +1,14 @@
-import React,{useContext} from 'react'
+import NavMenu from '../NavMenu'
 import './styles.css'
-import { UserContext } from '../../context/UserContext'
+
 function Header() {
-    const { user } = useContext(UserContext)
+
     return (
-        <>
-            <header className='text-white d-flex justify-content-center bg-black p-2 fw-bold' > 
-            TODO - {user.nome}
-            </header>
-        </>
+        <header className='text-white d-flex justify-content-between align-items-center  bg-black px-1 fw-bold' >
+            <h3 className='m-0'>TODO</h3> 
+            <NavMenu />
+        </header>
+
     )
 }
 
