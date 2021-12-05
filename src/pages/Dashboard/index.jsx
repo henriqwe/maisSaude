@@ -5,14 +5,18 @@ import { ToastContainer } from "react-toastify";
 import api from "../../service/api";
 import NewTask from "../../components/NewTask";
 import { DropdownButton, Dropdown, Container, Row, Col } from "react-bootstrap";
+import CardTask from "../../components/CardTask";
 
 export function Dashboard() {
+
   const [tasks, setTasks] = useState([]);
   const { user } = useContext(UserContext);
+  // const [tasksFiltred, setTasksFiltred] = useState([]);
 
   useEffect(async () => {
     await api.get(`api/getTasksUser/${user.id}`).then((res) => {
       setTasks(res.data);
+      // setTasksFiltred(res.data)
     });
   }, [user.id]);
 
@@ -22,7 +26,7 @@ export function Dashboard() {
       <Container className='px-5 mt-4'>
         <Row>
           <Col>
-            <NewTask setTasks={setTasks}/>
+            <NewTask setTasks={setTasks} />
           </Col>
           <Col className='justify-content-end d-flex'>
             <FilterBtn />
@@ -31,10 +35,10 @@ export function Dashboard() {
         <Row>
           <Col className='justify-content-center d-flex'>
             <ul className='p-0'>
-              {tasks.map((task, index) => {
+              {tasks.map(({id,titulo,descricao,prioridade_tarefa,categoria,data_e_hora_tarefa,status}) => {
                 return (
-                  <li key={index} className='text-white list-unstyled'>
-                    {task.titulo}
+                  <li key={id} className='text-white list-unstyled'>
+                    <CardTask value={{id,titulo,descricao,prioridade_tarefa,categoria,data_e_hora_tarefa,status,setTasks}} />
                   </li>
                 );
               })}

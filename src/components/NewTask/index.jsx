@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect} from "react";
 import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 import { FaPlus, FaSave } from "react-icons/fa";
 import { Status, Prioridades } from "../Selects";
@@ -18,6 +18,9 @@ export default function NewTask({setTasks}) {
   });
   const { user } = useContext(UserContext);
 
+  useEffect(()=>{
+      console.log(form)
+  },[form])
 
   const [isFetching, setIsFetching] = useState(false);
 
@@ -59,8 +62,6 @@ export default function NewTask({setTasks}) {
       console.log(error);
     }
     setIsFetching(false);
-    
-
   }
 
   function showModal() {
