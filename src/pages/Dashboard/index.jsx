@@ -8,8 +8,7 @@ export function Dashboard() {
 
     const [tasks, setTasks] = useState([])
     const { user } = useContext(UserContext)
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
     useEffect(async () => {
         await api.get(`api/getTasksUser/${user.id}`).then((res) => {
             setTasks(res.data)

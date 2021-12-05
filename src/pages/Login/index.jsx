@@ -44,7 +44,7 @@ export function Login() {
           position: "bottom-right"
         }
       });
-    } catch (error) { }
+    } catch (error) { console.log(error) }
     setIsFetching(false)
   }
 
