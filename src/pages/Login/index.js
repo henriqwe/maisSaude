@@ -24,6 +24,7 @@ export function Login() {
     try {
       await toast.promise(api.post('api/auth', formLogin).then(async (res) => {
         setUser(res.data)
+        localStorage.setItem('User',JSON.stringify(res.data))
         history.push("/dashboard")
       }), {
         transition: Slide,
