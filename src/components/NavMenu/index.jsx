@@ -15,7 +15,7 @@ export default function NavHeader() {
     history.push("/");
   }
   return (
-    <div className='d-flex justify-content-between float-end align-items-center'>
+    <div className=''>
       <Navbar variant='dark' bg='' expand='lg'>
         <Nav>
           <NavDropdown
@@ -26,7 +26,7 @@ export default function NavHeader() {
           >
             <NavDropdown.Item
               onClick={logOut}
-              className='d-flex justify-content-end align-items-center'
+              className=''
             >
               <FaPowerOff className='me-3' />
               <span> Sair </span>
@@ -37,3 +37,7 @@ export default function NavHeader() {
     </div>
   );
 }
+
+
+// d-flex justify-content-between float-end align-items-center
+// d-flex justify-content-end align-items-center

@@ -8,6 +8,7 @@ import { UserContext } from "../../context/UserContext";
 import { Status } from "../Selects";
 import { Prioridades } from "../Selects";
 import { FaSave, FaTrashAlt } from "react-icons/fa";
+import "./CarsTask.css"
 
 export default function CardTask({ value }) {
   const {
@@ -19,20 +20,20 @@ export default function CardTask({ value }) {
     data_e_hora_tarefa,
     status,
     setTasks,
-    Slide, toast 
+    Slide, toast
   } = value;
-  const dateEHoraAcrescentado = (data_e_hora_tarefa)?addHours(new Date(data_e_hora_tarefa), 3):null;
+  const dateEHoraAcrescentado = (data_e_hora_tarefa) ? addHours(new Date(data_e_hora_tarefa), 3) : null;
   const [form, setForm] = useState({
     id,
     titulo,
     descricao,
     prioridade_tarefa,
     categoria,
-    data_e_hora_tarefa: (dateEHoraAcrescentado)? format(
+    data_e_hora_tarefa: (dateEHoraAcrescentado) ? format(
       dateEHoraAcrescentado,
       "yyyy-MM-dd'T'HH:mm",
       ptBR
-    ):null,
+    ) : null,
     status,
   });
 
@@ -108,12 +109,30 @@ export default function CardTask({ value }) {
     setModalShow(true);
   }
 
+
+  function backStatusGround(color, prioridade_tarefa) {
+    switch (prioridade_tarefa) {
+      case 1:
+        return `${color} bg-success`;
+
+      case 2:
+        return `${color} bg-warning`;
+
+      case 3:
+        return `${color} bg-danger`;
+
+      default:
+        return color;
+
+    }
+  }
+
   async function handlerDelTask(id) {
     setIsFetching(true);
     try {
       await toast.promise(
         api.post("api/deleteTask", { id: id }).then(async (res) => {
-            console.log(res)
+          console.log(res)
           await api.get(`api/getTasksUser/${user.id}`).then((res) => {
             setTasks(res.data);
             setModalShow(false);
@@ -146,13 +165,13 @@ export default function CardTask({ value }) {
 
   return (
     <>
-      <Card style={{ width: "30rem" }} className='mt-3' onClick={showModal}>
+      <Card style={{ width: "30rem" }} className={backStatusGround("mt-3 btn",prioridade_tarefa)} onClick={showModal}>
         <Card.Body>
           <Card.Title
             className={statusDecoration(
               "text-dark d-flex justify-content-between",
               status
-            )}
+            )} 
           >
             {titulo}
             {data_e_hora_tarefa && (
@@ -163,7 +182,7 @@ export default function CardTask({ value }) {
           </Card.Title>
           <Card.Subtitle
             className={statusDecoration(
-              "mb-2 text-muted d-flex justify-content-between",
+              "mb-2 text-dark d-flex justify-content-between",
               status
             )}
           >
