@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { format, addHours } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { Card, Modal, Form, FloatingLabel, Button } from "react-bootstrap";
-import { ToastContainer, Slide, toast } from "react-toastify";
+// import { ToastContainer, Slide, toast } from "react-toastify";
 import api from "../../service/api";
 import { UserContext } from "../../context/UserContext";
 import { Status } from "../Selects";
@@ -19,6 +19,7 @@ export default function CardTask({ value }) {
     data_e_hora_tarefa,
     status,
     setTasks,
+    Slide, toast 
   } = value;
   const dateEHoraAcrescentado = (data_e_hora_tarefa)?addHours(new Date(data_e_hora_tarefa), 3):null;
   const [form, setForm] = useState({
@@ -183,7 +184,7 @@ export default function CardTask({ value }) {
         handlerDelTask={handlerDelTask}
         onHide={() => setModalShow(false)}
       />
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 }

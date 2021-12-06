@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import Header from "../../components/Header/Header";
 import { UserContext } from "../../context/UserContext";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer,Slide, toast } from "react-toastify";
 import api from "../../service/api";
 import NewTask from "../../components/NewTask";
 import { DropdownButton, Dropdown, Container, Row, Col } from "react-bootstrap";
@@ -26,7 +26,7 @@ export function Dashboard() {
       <Container className='px-5 mt-4'>
         <Row>
           <Col>
-            <NewTask setTasks={setTasks} />
+            <NewTask setTasks={setTasks} value={{ToastContainer, Slide, toast}} />
           </Col>
           <Col className='justify-content-end d-flex'>
             <FilterBtn />
@@ -38,7 +38,7 @@ export function Dashboard() {
               {tasks.map(({id,titulo,descricao,prioridade_tarefa,categoria,data_e_hora_tarefa,status}) => {
                 return (
                   <li key={id} className='text-white list-unstyled'>
-                    <CardTask value={{id,titulo,descricao,prioridade_tarefa,categoria,data_e_hora_tarefa,status,setTasks}} />
+                    <CardTask value={{id,titulo,descricao,prioridade_tarefa,categoria,data_e_hora_tarefa,status,setTasks,ToastContainer, Slide, toast }} />
                   </li>
                 );
               })}
