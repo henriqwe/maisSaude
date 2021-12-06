@@ -3,10 +3,10 @@ import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 import { FaPlus, FaSave } from "react-icons/fa";
 import { Status, Prioridades } from "../Selects";
 import api from "../../service/api";
-import { ToastContainer, toast, Slide } from "react-toastify";
+// import { ToastContainer, toast, Slide } from "react-toastify";
 import { UserContext } from "../../context/UserContext";
 
-export default function NewTask({setTasks}) {
+export default function NewTask({setTasks,value}) {
   const [modalShow, setModalShow] = useState(false);
   const [form, setForm] = useState({
     titulo: "",
@@ -16,6 +16,7 @@ export default function NewTask({setTasks}) {
     categoria: "",
     data_e_hora_tarefa: "0000-00-00T00:00",
   });
+  const {toast, Slide} = value
   const { user } = useContext(UserContext);
 
   useEffect(()=>{
@@ -37,7 +38,11 @@ export default function NewTask({setTasks}) {
           await api.get(`api/getTasksUser/${user.id}`).then((res) => {
             setTasks(res.data);
             setModalShow(false);
+            console.log('fim')
+            return true
           });
+          console.log('fim2')
+          return true
         }),
         {
           transition: Slide,
@@ -55,7 +60,7 @@ export default function NewTask({setTasks}) {
             render: "Ocorreu um erro!",
             theme: "colored",
             position: "bottom-right",
-          },
+          }
         }
       );
     } catch (error) {
@@ -93,7 +98,7 @@ export default function NewTask({setTasks}) {
         isFetching={isFetching}
         onHide={() => setModalShow(false)}
       />
-      <ToastContainer/>
+      {/* <ToastContainer/> */}
     </>
   );
 }
