@@ -27,7 +27,7 @@ export default function NavHeader() {
           >
             <NavDropdown.Item
               onClick={logOut}
-              className=''
+              className='z-index-3'
             >
               <FaPowerOff className='me-3' />
               <span> Sair </span>

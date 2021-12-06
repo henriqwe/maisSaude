@@ -94,7 +94,7 @@ function FilterBtn({tasks,setTasksFiltred}) {
     }
   }
   return (
-    <DropdownButton align='end' title='Filtro'>
+    <DropdownButton align='end' title='Filtro' className='z-index-1'>
       <Dropdown.Item onClick={() => filterTasks(3)}>todos</Dropdown.Item>
       <Dropdown.Item onClick={() => filterTasks(0)}>
         Não inciados
