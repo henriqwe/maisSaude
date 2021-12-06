@@ -4,9 +4,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif !important;
+    
+   
 }
 
 body {
     margin: 0;
-    background-image: linear-gradient(to right, rgb(26, 138, 202),rgb(128, 17, 136));
+    background-image: linear-gradient(to top, rgb(0, 0, 0),rgb(66, 24, 70));
+    height: 100%;
+    min-height: 100vh;
 }
+

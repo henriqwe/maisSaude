@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { format, addHours } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { Card, Modal, Form, FloatingLabel, Button } from "react-bootstrap";
+import { Card, Modal, Form, FloatingLabel, Button, Row, Col } from "react-bootstrap";
 // import { ToastContainer, Slide, toast } from "react-toastify";
 import api from "../../service/api";
 import { UserContext } from "../../context/UserContext";
@@ -87,11 +87,11 @@ export default function CardTask({ value }) {
   function renderPrioridade(prioridade) {
     switch (prioridade) {
       case 1:
-        return <span className='borda-prio'>Tranquilo</span>;
+        return <span className='borda-prio bg-primary fw-bold text-white p-1'>Tranquilo</span>;
       case 2:
-        return <span className='borda-prio'>Moderado</span>;
+        return <span className='borda-prio bg-warning fw-bold p-1 '>Moderado</span>;
       case 3:
-        return <span className='borda-prio'>Urgente</span>;
+        return <span className='borda-prio bg-danger fw-bold text-white p-1'>Urgente</span>;
       default:
         break;
     }
@@ -111,19 +111,19 @@ export default function CardTask({ value }) {
   }
 
   function backStatusGround(color, prioridade_tarefa, status) {
-    switch (prioridade_tarefa) {
-      case 1:
-        color +=' bg-success';
-        break;
-      case 2:
-        color+= ' bg-warning';
-        break;
-      case 3:
-        color+= ' bg-danger';
-        break;
-      default:
-        break;
-    }
+    // switch (prioridade_tarefa) {
+    //   case 1:
+    //     color +=' bg-success';
+    //     break;
+    //   case 2:
+    //     color+= ' bg-warning';
+    //     break;
+    //   case 3:
+    //     color+= ' bg-danger';
+    //     break;
+    //   default:
+    //     break;
+    // }
     switch (status) {
       case 0:
         return `${color} border-light`;
@@ -210,7 +210,7 @@ export default function CardTask({ value }) {
             {prioridade_tarefa && renderPrioridade(prioridade_tarefa)}
           </Card.Subtitle>
           <Card.Text className={statusDecoration("text-dark", status)}>
-            <span>Descrição: </span> {descricao}
+            <span></span> {descricao}
           </Card.Text>
         </Card.Body>
       </Card>
@@ -256,7 +256,9 @@ function ModalNewTask({
       <Modal.Body>
         <Form onSubmit={(e) => handlerFormSubmit(e)}>
           <Form.Group className='mb-3'>
-            <FloatingLabel label='Título'>
+          <Row className="g-2">
+  <Col md>
+  <FloatingLabel label='Título'>
               <Form.Control
                 type='text'
                 name='titulo'
@@ -269,6 +271,22 @@ function ModalNewTask({
                 disabled={isFetching}
               />
             </FloatingLabel>
+  </Col>
+  <Col md>
+  <FloatingLabel label='Horário'>
+              <Form.Control
+                type='datetime-local'
+                name='data_e_hora_tarefa'
+                id='dataEHora'
+                value={formData.form.data_e_hora_tarefa}
+                className='mb-2 mt-2'
+                onChange={(e) => handlerForm(e.target)}
+                disabled={isFetching}
+              />
+            </FloatingLabel>
+  </Col>
+</Row>
+
             <FloatingLabel label='Descricao'>
               <Form.Control
                 as='textarea'
@@ -283,20 +301,24 @@ function ModalNewTask({
                 disabled={isFetching}
               />
             </FloatingLabel>
-            <FloatingLabel label='Categoria'>
+            <Row className="g-3">
+  <Col md>
+  <FloatingLabel label='Categoria'>
               <Form.Control
                 type='text'
                 name='categoria'
                 autoComplete='categoria'
                 value={formData.form.categoria}
                 placeholder='categoria'
-                className='mb-2'
+                className='mb-2 m-2'
                 onChange={(e) => handlerForm(e.target)}
                 required
                 disabled={isFetching}
               />
             </FloatingLabel>
-            <FloatingLabel label='Prioridade'>
+  </Col>
+  <Col md>
+  <FloatingLabel label='Prioridade'>
               <Form.Select
                 name='prioridade_tarefa'
                 value={formData.form.prioridade_tarefa}
@@ -307,8 +329,9 @@ function ModalNewTask({
                 <Prioridades />
               </Form.Select>
             </FloatingLabel>
-
-            <FloatingLabel label='Status'>
+  </Col>
+    <Col md>
+    <FloatingLabel label='Status'>
               <Form.Select
                 name='status'
                 value={formData.form.status}
@@ -319,17 +342,13 @@ function ModalNewTask({
                 <Status />
               </Form.Select>
             </FloatingLabel>
-            <FloatingLabel label='Horário'>
-              <Form.Control
-                type='datetime-local'
-                name='data_e_hora_tarefa'
-                id='dataEHora'
-                value={formData.form.data_e_hora_tarefa}
-                className='mb-2'
-                onChange={(e) => handlerForm(e.target)}
-                disabled={isFetching}
-              />
-            </FloatingLabel>
+  </Col>
+</Row>
+            
+            
+
+
+
           </Form.Group>
           <Form.Group className='d-flex justify-content-between'>
             <Button

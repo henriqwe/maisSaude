@@ -16,7 +16,7 @@ export default function NavHeader() {
     history.push("/");
   }
   return (
-    <div className=''>
+    <div className='text-white'>
       <Navbar variant='dark' bg='' expand='lg'>
         <Nav className="">
           <NavDropdown
@@ -27,7 +27,7 @@ export default function NavHeader() {
           >
             <NavDropdown.Item
               onClick={logOut}
-              className='z-index-3'
+              className='z-index-3 '
             >
               <FaPowerOff className='me-3' />
               <span> Sair </span>

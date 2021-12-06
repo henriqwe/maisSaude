@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect} from "react";
-import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
+import { Button, Modal, Form, FloatingLabel, Col, Row } from "react-bootstrap";
 import { FaPlus, FaSave } from "react-icons/fa";
 import { Status, Prioridades } from "../Selects";
 import api from "../../service/api";
@@ -129,8 +129,12 @@ function ModalNewTask({
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={(e) => handlerFormSubmit(e)}>
+          
           <Form.Group className='mb-3'>
-            <FloatingLabel label='Título'>
+
+            <Row className="g-2">
+  <Col md>
+  <FloatingLabel label='Título'>
               <Form.Control
                 type='text'
                 name='titulo'
@@ -143,6 +147,22 @@ function ModalNewTask({
                 disabled={isFetching}
               />
             </FloatingLabel>
+  </Col>
+  <Col md>
+  <FloatingLabel label='Horário'>
+            <Form.Control
+              type='datetime-local'
+              name='data_e_hora_tarefa'
+              id='dataEHora'
+              value={formData.form.data_e_hora_tarefa}
+              className='mb-2 mt-2'
+              onChange={(e) => handlerForm(e.target)}
+              disabled={isFetching}
+            />
+            </FloatingLabel>
+  </Col>
+</Row>
+            
             <FloatingLabel label='Descricao'>
               <Form.Control
                 as='textarea'
@@ -157,20 +177,24 @@ function ModalNewTask({
                 disabled={isFetching}
               />
             </FloatingLabel>
-            <FloatingLabel label='Categoria'>
+            <Row className="g-3">
+  <Col md>
+  <FloatingLabel label='Categoria'>
               <Form.Control
                 type='text'
                 name='categoria'
                 autoComplete='categoria'
                 value={formData.form.categoria}
                 placeholder='categoria'
-                className='mb-2'
+                className='mb-2 mt-2'
                 onChange={(e) => handlerForm(e.target)}
                 required
                 disabled={isFetching}
               />
             </FloatingLabel>
-            <FloatingLabel label='Prioridade'>
+  </Col>
+  <Col md>
+  <FloatingLabel label='Prioridade'>
               <Form.Select
                 name='prioridade_tarefa'
                 value={formData.form.prioridade_tarefa}
@@ -181,8 +205,9 @@ function ModalNewTask({
                 <Prioridades />
               </Form.Select>
             </FloatingLabel>
-           
-            <FloatingLabel label='Status'>
+  </Col>
+  <Col md>
+  <FloatingLabel label='Status'>
             <Form.Select
               name='status'
               value={formData.form.status}
@@ -193,17 +218,13 @@ function ModalNewTask({
               <Status />
             </Form.Select>
             </FloatingLabel>
-            <FloatingLabel label='Horário'>
-            <Form.Control
-              type='datetime-local'
-              name='data_e_hora_tarefa'
-              id='dataEHora'
-              value={formData.form.data_e_hora_tarefa}
-              className='mb-2'
-              onChange={(e) => handlerForm(e.target)}
-              disabled={isFetching}
-            />
-            </FloatingLabel>
+  </Col>
+</Row>
+            
+           
+           
+
+
           </Form.Group>
           <Form.Group className='d-flex justify-content-end'>
             <Button

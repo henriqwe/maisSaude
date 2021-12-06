@@ -6,6 +6,7 @@ import api from "../../service/api";
 import NewTask from "../../components/NewTask";
 import { DropdownButton, Dropdown, Container, Row, Col } from "react-bootstrap";
 import CardTask from "../../components/CardTask";
+import './Dashboard.css'
 
 export function Dashboard() {
   const [tasks, setTasks] = useState([]);
@@ -28,7 +29,7 @@ export function Dashboard() {
   return (
     <>
       <Header />
-      <Container className='px-5 mt-4'>
+      <Container className='px-5 mt-4 container'>
         <Row>
           <Col>
             <NewTask
@@ -40,8 +41,8 @@ export function Dashboard() {
             <FilterBtn  tasks={tasks} setTasksFiltred={setTasksFiltred}/>
           </Col>
         </Row>
-        <Row>
-          <Col className='justify-content-center d-flex'>
+        <Row >
+          <Col className='justify-content-center d-flex' id='divCards'>
             <ul className='p-0'>
               {tasksFiltred.map(
                 ({
