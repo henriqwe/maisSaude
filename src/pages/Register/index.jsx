@@ -52,7 +52,7 @@ export function Register() {
                         position: "bottom-right"
                     }
                 });
-            } catch (error) { }
+            } catch (error) { console.log(error)}
             setIsFetching(false)
         }else{
             toast.error('As senhas não coincidem', {
