@@ -4,6 +4,7 @@ import { NavDropdown, Navbar, Nav } from "react-bootstrap";
 import { FaPowerOff } from "react-icons/fa";
 import { useHistory } from "react-router";
 
+
 export default function NavHeader() {
   const { user, setUser } = useContext(UserContext);
 
@@ -17,7 +18,7 @@ export default function NavHeader() {
   return (
     <div className=''>
       <Navbar variant='dark' bg='' expand='lg'>
-        <Nav>
+        <Nav className="">
           <NavDropdown
             id='nav-dropdown-dark-example'
             title={user.nome}
@@ -41,3 +42,4 @@ export default function NavHeader() {
 
 // d-flex justify-content-between float-end align-items-center
 // d-flex justify-content-end align-items-center
+

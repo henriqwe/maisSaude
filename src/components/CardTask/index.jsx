@@ -86,11 +86,11 @@ export default function CardTask({ value }) {
   function renderPrioridade(prioridade) {
     switch (prioridade) {
       case 1:
-        return <span>de boas</span>;
+        return <span className="borda-prio">Tranquilo</span>;
       case 2:
-        return <span>pouco urgente</span>;
+        return <span className="borda-prio">Moderado</span>;
       case 3:
-        return <span>urgente</span>;
+        return <span className="borda-prio">Urgente</span>;
       default:
         break;
     }
@@ -110,7 +110,7 @@ export default function CardTask({ value }) {
   }
 
 
-  function backStatusGround(color, prioridade_tarefa) {
+  function backStatusGround(color , prioridade_tarefa) {
     switch (prioridade_tarefa) {
       case 1:
         return `${color} bg-success`;

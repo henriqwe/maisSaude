@@ -4,9 +4,9 @@ import "./styles.css";
 
 function Header() {
   return (
-    <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 px-4 mb-4 border-bottom">
+    <header className="text-white d-flex justify-content-between align-items-center  bg-success fw-bold"  >
   
-          <h3 className="d-flex text-decoration-none text-white">TODO</h3>
+          <h3 className="m-0">TODO</h3>
           <NavMenu />
   
 

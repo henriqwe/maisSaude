@@ -8,5 +8,5 @@
 
 body {
     margin: 0;
-    background: rgb(34, 29, 29);
+    background-image: linear-gradient(to right, rgb(26, 138, 202),rgb(128, 17, 136));
 }
