@@ -31,7 +31,7 @@ export function Login() {
 
   return (
     <div className='container vh-100 d-flex'>
-      <div className='vw-25 m-auto'>
+      <div className='vw-25 m-auto bg-primary p-5 badge'>
         <h1 className='text-white text-center'> To Do List </h1>
         <Form onSubmit={(e) => authLogin(e)}>
           <Form.Group className='mb-3'>
@@ -57,15 +57,6 @@ export function Login() {
               required
               disabled={isFetching}
             />
-            <Form.Check
-              type='checkbox'
-              name='checkbox'
-              label='Continuar conectado'
-              value={formLogin.checkbox}
-              className='mb-2 text-white'
-              onChange={(e) => handlerForm(e.target)}
-              disabled={isFetching}
-            />
           </Form.Group>
           <Form.Group className='d-flex justify-content-center'>
             <Button
@@ -77,8 +68,8 @@ export function Login() {
               Acessar
             </Button>
           </Form.Group>
-          <p className='mt-2 text-white'>
-            Não possui cadastro?<Link to='/register'> Clique aqui.</Link>{" "}
+          <p className='mt-4 text-white '>
+            Não possui cadastro?<Link to='/register' className='text-white'> Clique aqui.</Link>{" "}
           </p>
         </Form>
       </div>

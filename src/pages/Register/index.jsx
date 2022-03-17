@@ -37,7 +37,8 @@ export function Register() {
 
     return (
         <div className="container vh-100 d-flex">
-            <div className="w-auto m-auto">
+            <div className="w-auto m-auto bg-primary p-5 
+            badge">
                 <h1 className="text-white text-center"> Cadastro </h1>
                 <Form className='w-100' onSubmit={(e) => createUser(e)}>
                     <Form.Group className="mb-3 ">

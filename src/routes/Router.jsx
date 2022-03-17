@@ -1,19 +1,10 @@
-import React, { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import { Route, Redirect } from "react-router";
+import React from "react";
+import { Route } from "react-router";
 
 
-export default function RouterWapper({ component: Component, isPrivate, ...rest }) {
-    const {user} = useContext(UserContext)
+export default function RouterWapper({ component: Component, ...rest }) {
 
     
-
-    if(user && !isPrivate){
-        return(
-            <Redirect to='/dashboard'/>
-        )
-    }
-
 
     return (
         <Route

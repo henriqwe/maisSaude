@@ -20,7 +20,6 @@ export default function NavHeader() {
           <NavDropdown
             id='nav-dropdown-dark-example'
             title={user.nome}
-            menuVariant='dark'
             align='end'
           >
             <NavDropdown.Item
