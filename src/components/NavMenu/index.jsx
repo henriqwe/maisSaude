@@ -6,13 +6,11 @@ import { useHistory } from "react-router";
 
 
 export default function NavHeader() {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const history = useHistory();
 
   function logOut() {
-    setUser(null);
-    localStorage.removeItem("User");
     history.push("/");
   }
   return (
