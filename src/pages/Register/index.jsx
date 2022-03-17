@@ -1,15 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./Register.css";
 import { Form, Button, InputGroup, Row, Col } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { FaAngleLeft, FaEyeSlash, FaEye, FaCheck } from "react-icons/fa";
-import api from '../../service/api'
-import { ToastContainer, toast, Slide } from 'react-toastify';
-import { UserContext } from "../../context/UserContext";
+import { ToastContainer } from 'react-toastify';
 
 export function Register() {
 
-    const { setUser } = useContext(UserContext)
     const [form, setForm] = useState({ nome: '', email: '', senha: '', senhaConf: '' })
     const [showPass, setShowPass] = useState(false)
     const [isFetching, setIsFetching] = useState(false)
@@ -33,38 +30,8 @@ export function Register() {
 
         if (form.senha === form.senhaConf) {
             setIsFetching(true)
-            try {
-                await toast.promise(api.post('api/createUser', form).then((res) => {setUser(res.data)}), {
-                    transition: Slide,
-                    pending: {
-                        render: 'Verificando...',
-                        theme: "colored",
-                        position: "bottom-right"
-                    },
-                    success: {
-                        render: 'Cadastro realizado com sucesso!',
-                        theme: "colored",
-                        position: "bottom-right"
-                    },
-                    error: {
-                        render: 'E-mail já cadastrado',
-                        theme: "colored",
-                        position: "bottom-right"
-                    }
-                });
-            } catch (error) { console.log(error)}
+            
             setIsFetching(false)
-        }else{
-            toast.error('As senhas não coincidem', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                theme: "colored",
-                progress: undefined,
-                });
         }
     }
 

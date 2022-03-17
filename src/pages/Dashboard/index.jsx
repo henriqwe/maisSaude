@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
-import { UserContext } from "../../context/UserContext";
 import { ToastContainer, Slide, toast } from "react-toastify";
-import api from "../../service/api";
 import NewTask from "../../components/NewTask";
 import { DropdownButton, Dropdown, Container, Row, Col } from "react-bootstrap";
 import CardTask from "../../components/CardTask";
@@ -10,15 +8,8 @@ import './Dashboard.css'
 
 export function Dashboard() {
   const [tasks, setTasks] = useState([]);
-  const { user } = useContext(UserContext);
   const [tasksFiltred, setTasksFiltred] = useState([]);
 
-  useEffect(async () => {
-    await api.get(`api/getTasksUser/${user.id}`).then((res) => {
-      setTasks(res.data);
-      setTasksFiltred(res.data);
-    });
-  }, [user.id]);
 
   useEffect(() => {
     setTasksFiltred(tasks);
@@ -86,7 +77,6 @@ export function Dashboard() {
 function FilterBtn({tasks,setTasksFiltred}) {
 
   function filterTasks(status) {
-    console.log(status);
     if(status === 3){
       setTasksFiltred(tasks)
     }else{

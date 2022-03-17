@@ -1,13 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import api from "../../service/api";
-import { ToastContainer, toast, Slide } from "react-toastify";
-import { UserContext } from "../../context/UserContext";
+import { ToastContainer } from "react-toastify";
 
 export function Login() {
-  const { setUser } = useContext(UserContext);
   const [formLogin, setFormLogin] = useState({
     email: "",
     senha: "",
@@ -25,34 +22,7 @@ export function Login() {
 
     setIsFetching(true);
     try {
-      await toast.promise(
-        api.post("api/auth", formLogin).then(async (res) => {
-          setUser(res.data);
-
-          if (formLogin.checkbox) {
-            localStorage.setItem("User", JSON.stringify(res.data));
-          }
-          history.push("/dashboard");
-        }),
-        {
-          transition: Slide,
-          pending: {
-            render: "Verificando...",
-            theme: "colored",
-            position: "bottom-right",
-          },
-          success: {
-            render: `Seja bem vindo`,
-            theme: "colored",
-            position: "bottom-right",
-          },
-          error: {
-            render: "Usuário/senha inválido",
-            theme: "colored",
-            position: "bottom-right",
-          },
-        }
-      );
+          history.push("/dashboard")
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +36,7 @@ export function Login() {
         <Form onSubmit={(e) => authLogin(e)}>
           <Form.Group className='mb-3'>
             <Form.Control
-              type='email'
+              type='text'
               name='email'
               autoComplete='email'
               value={formLogin.email}
