@@ -1,15 +1,11 @@
 {
-    "name": "maisSaude",
-    "version": "0.0.1",
-    "private": false,
+    "name": "to-do-front",
+    "version": "0.1.0",
+    "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^11.2.7",
         "@testing-library/user-event": "^12.8.3",
-        "@types/jest": "^27.4.1",
-        "@types/node": "^17.0.21",
-        "@types/react": "^17.0.40",
-        "@types/react-dom": "^17.0.13",
         "axios": "^0.21.4",
         "babel-eslint": "^10.1.0",
         "bootstrap": "^5.1.1",
@@ -26,7 +22,6 @@
         "react-router-dom": "^5.3.0",
         "react-scripts": "4.0.3",
         "react-toastify": "^8.1.0",
-        "typescript": "^4.6.2",
         "web-vitals": "^1.1.2"
     },
     "scripts": {
@@ -56,9 +51,5 @@
     "devDependencies": {
         "eslint": "^7.11.0",
         "eslint-plugin-react": "^7.27.1"
-    },
-    "main": "index.js",
-    "repository": "git@github.com:henriqwe/maisSaude.git",
-    "author": "henriqwe <henriqwe96@gmail.com>",
-    "license": "MIT"
+    }
 }
