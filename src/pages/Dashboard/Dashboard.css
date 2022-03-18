@@ -1,3 +1,7 @@
-#divCards{
-    /* overflow: scroll !important; */
+#divCards {
+  /* overflow: scroll !important; */
+}
+
+#noticia {
+  color: black;
 }
