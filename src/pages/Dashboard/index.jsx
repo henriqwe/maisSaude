@@ -2,12 +2,16 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import { Container, Accordion } from "react-bootstrap";
 import "./Dashboard.css";
+import {CarouselComponent} from '../../components/Carousel'
+
 
 export function Dashboard() {
   return (
     <>
       <Header />
-
+      <div className='contentCarousel'>
+        <CarouselComponent/>
+      </div>
       <Container defaultActiveKey='0' flush>
         <h1 id='noticia'>Notícias:</h1>
         <Accordion>

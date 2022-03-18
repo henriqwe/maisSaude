@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./Login.css";
 import { Form, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import {UserContext} from '../../context/UserContext'
 
 export function Login() {
+  const {  setUser } = useContext(UserContext)
   const [formLogin, setFormLogin] = useState({
-    email: "",
+    nome: "",
     senha: "",
     checkbox: false,
   });
@@ -22,6 +24,8 @@ export function Login() {
 
     setIsFetching(true);
     try {
+      console.log(e)
+      setUser({nome:formLogin.nome})
           history.push("/dashboard")
     } catch (error) {
       console.log(error);
@@ -31,16 +35,16 @@ export function Login() {
 
   return (
     <div className='container vh-100 d-flex'>
-      <div className='vw-25 m-auto bg-primary p-5' id='bgLogin'>
+      <div className='vw-25 m-auto bg-primary p-5'>
         <h1 className='text-white text-center'> To Do List </h1>
         <Form onSubmit={(e) => authLogin(e)}>
           <Form.Group className='mb-3'>
             <Form.Control
               type='text'
-              name='email'
-              autoComplete='email'
-              value={formLogin.email}
-              placeholder='E-mail'
+              name='nome'
+              autoComplete='nome'
+              value={formLogin.nome}
+              placeholder='Nome'
               className='mt-2 mb-2'
               onChange={(e) => handlerForm(e.target)}
               required
