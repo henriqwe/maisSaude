@@ -1,0 +1,78 @@
+#teste{
+  background-image: url('../como-calcular-o-imc-bg-top.png');
+  background-repeat: no-repeat;
+  width: auto;
+  height: 250px;
+  padding: 350px;
+  opacity: 22%;
+}
+
+.sobe{
+  margin-top: -650px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+
+.vamo{
+ margin-top: 60px;
+
+}
+
+.ttr{
+  text-align: center;
+  font-size: 13.5px;
+}
+
+.tth{
+  text-align: center;
+}
+
+.centralizar{
+  margin-top: 45px;
+  text-align: center;
+}
+
+.centralizarr{
+  text-align: center;
+}
+
+.imgGordox{
+  background-image: url('./como-calcular-o-imc-bg-miolo.png');
+  background-repeat: no-repeat;
+  height: 200px;
+  padding: 320px;
+  margin-top: -130px;
+  opacity: 75%;
+}
+
+.sobe1{
+  margin-top: -30px;
+  margin-left: 270px;
+}
+
+.campos{
+  display: flex;
+  padding: 4px;
+  margin: 3px;
+  margin-bottom: 2px;
+  border-radius: 6px;
+  border-color: rgb(27, 92, 190);
+  width: 250px;
+}
+
+.camposButton {
+  margin-left: 185px;
+  margin-top: 2px;
+  border-radius: 9px;
+  padding: 2px;
+  
+}
+
+.campos:active{
+  background-color: rgb(226, 228, 229);
+}
+
+.resultado{
+  margin-top: -338px;
+  margin-left: 50px;
+}
