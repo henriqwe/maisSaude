@@ -4,8 +4,8 @@ import "./styles.css";
 
 function Header() {
   return (
-    <header className='text-white d-flex justify-content-between align-items-center px-4 bg-dark fw-bold'>
-      <h3 className='m-0 '>+Saude</h3>
+    <header className='text-white d-flex justify-content-between align-items-center px-4 bg-primary fw-bold'>
+      <h3 className='m-0 '>MaisSaude</h3>
       <NavMenu />
     </header>
   );
