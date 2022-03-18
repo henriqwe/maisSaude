@@ -3,6 +3,7 @@ import { UserContext } from "../../context/UserContext";
 import { NavDropdown, Navbar, Nav } from "react-bootstrap";
 import { FaPowerOff } from "react-icons/fa";
 import { useHistory } from "react-router";
+import "./NavMenu.css";
 
 
 export default function NavHeader() {
@@ -13,8 +14,44 @@ export default function NavHeader() {
   function logOut() {
     history.push("/");
   }
+
+  function imc() {
+    history.push("/imc");
+  }
+
+  function dashboard() {
+    history.push("/dashboard");
+  }
+
+  function exercicios() {
+    history.push("/exercicios");
+  }
+
+  function buscarEsp(){
+    history.push("/buscaresp")
+  }
+
   return (
-    <div className='text-white'>
+    <div className='text-white d-flex'>
+      
+      <form className="d-flex">
+
+        <button className="btn z-index-3 " onClick={dashboard}>
+          Início
+        </button>
+
+        <button className="btn " onClick={imc}>
+          IMC
+        </button>
+      
+        <button className="btn" onClick={exercicios}>
+          Exercite-se
+        </button>
+
+        <button className="btn" onClick={buscarEsp}>
+          Encontre Especialistas
+        </button>
+      </form>
       <Navbar variant='dark' bg='' expand='lg'>
         <Nav className="">
           <NavDropdown
