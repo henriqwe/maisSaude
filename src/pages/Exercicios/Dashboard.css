@@ -1,0 +1,21 @@
+#testeE{
+    background-image: url('./dicas_exercicios.jpg');
+    background-repeat: no-repeat;
+    width: auto;
+    height: 250px;
+    padding: 350px;
+    opacity: 18%;
+  }
+
+
+  .divv{
+      margin-left: 6px;
+  }
+
+video{
+    width: 250px;
+}
+
+.centralizar{
+    text-align: center;
+}

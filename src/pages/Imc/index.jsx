@@ -76,7 +76,7 @@ Assim, de acordo com o resultado do IMC é possível também saber se existe alg
         <button className="camposButton button bg-primary ">Calcular</button>
         </div>
 
-        
+        /
       </div>
 
       <div className="resultado">
@@ -87,7 +87,11 @@ Assim, de acordo com o resultado do IMC é possível também saber se existe alg
 
     
     </form>
+
+    
       </Container>
+
+      
     </>
   );
 }
