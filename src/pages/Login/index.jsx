@@ -31,7 +31,7 @@ export function Login() {
 
   return (
     <div className='container vh-100 d-flex'>
-      <div className='vw-25 m-auto bg-primary p-5 badge'>
+      <div className='vw-25 m-auto bg-primary p-5' id='bgLogin'>
         <h1 className='text-white text-center'> To Do List </h1>
         <Form onSubmit={(e) => authLogin(e)}>
           <Form.Group className='mb-3'>
