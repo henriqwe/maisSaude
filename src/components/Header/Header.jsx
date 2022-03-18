@@ -8,7 +8,7 @@ function Header() {
       <h3 className='m-0 '>MaisSaude</h3>
       <NavMenu />
     </header>
-  );
+  ); 
 }
 
 export default Header;
