@@ -1,19 +1,18 @@
-import React from "react";
-import Header from "../../components/Header/Header";
-import { Container, Accordion } from "react-bootstrap";
-import "./Dashboard.css";
-import {CarouselComponent} from '../../components/Carousel'
-
+import React from 'react'
+import Header from '../../components/Header/Header'
+import { Container, Accordion } from 'react-bootstrap'
+import './Dashboard.css'
+import { CarouselComponent } from '../../components/Carousel'
 
 export function Dashboard() {
   return (
     <>
       <Header />
-      <div className='contentCarousel'>
-        <CarouselComponent/>
+      <div className="contentCarousel mb-4">
+        <CarouselComponent />
       </div>
-      <Container defaultActiveKey='0' flush>
-        <h1 id='noticia'>Notícias:</h1>
+      <Container defaultActiveKey="0" flush>
+        <h1 id="noticia">Notícias:</h1>
         <Accordion>
           <Accordion.Item>
             <Accordion.Header>
@@ -22,7 +21,7 @@ export function Dashboard() {
             <Accordion.Body>
               <img
                 src={
-                  "https://www.centralnacionalunimed.com.br/documents/20182/11762772/como-come%C3%A7ar.jpg/d88927aa-092f-49b6-aeb4-350dc365f17a?t=1599143323681"
+                  'https://www.centralnacionalunimed.com.br/documents/20182/11762772/como-come%C3%A7ar.jpg/d88927aa-092f-49b6-aeb4-350dc365f17a?t=1599143323681'
                 }
               ></img>
               <br></br>
@@ -49,7 +48,7 @@ export function Dashboard() {
               desfavorável a composição nutricional dos alimentos dos quais
               derivam. Podem ser consumidos (em pequenas quantidades) como
               ingredientes de preparações culinárias ou parte de refeições
-              baseadas em alimentos in natura ou minimamente processados.{" "}
+              baseadas em alimentos in natura ou minimamente processados.{' '}
               <br></br>
               <br></br> 4. Evite o consumo de ultraprocessados O consumo de
               ultraprocessados é desencorajado por diversos motivos: são
@@ -120,7 +119,7 @@ export function Dashboard() {
           </Accordion.Item>
           <br></br>
 
-          <Accordion.Item eventKey='1'>
+          <Accordion.Item eventKey="1">
             <Accordion.Header>
               Como começar a praticar exercícios físicos Benefícios da atividade
               física para a saúde
@@ -128,7 +127,7 @@ export function Dashboard() {
             <Accordion.Body>
               <img
                 src={
-                  "https://media.istockphoto.com/photos/assortment-of-colorful-ripe-tropical-fruits-top-view-picture-id995518546?k=20&m=995518546&s=612x612&w=0&h=yPdMHr-CL9JD8eLnyBr2_hFpx6l3jUBU9UEwwdnNfAU="
+                  'https://media.istockphoto.com/photos/assortment-of-colorful-ripe-tropical-fruits-top-view-picture-id995518546?k=20&m=995518546&s=612x612&w=0&h=yPdMHr-CL9JD8eLnyBr2_hFpx6l3jUBU9UEwwdnNfAU='
                 }
               ></img>
               <br></br>
@@ -162,7 +161,7 @@ export function Dashboard() {
               academias. Não depender de grandes deslocamentos facilita a
               manutenção do hábito <br></br>
               <br></br>9- Alongamento também é um exercício importante. Separe
-              um momento ou alguns dos dias de exercício para essa prática{" "}
+              um momento ou alguns dos dias de exercício para essa prática{' '}
               <br></br>
               <br></br>10- Mantenha o corpo hidratado, o suor faz o organismo
               perder água E, se você funciona melhor com prazos, vale determinar
@@ -173,17 +172,17 @@ export function Dashboard() {
           </Accordion.Item>
           <br></br>
 
-          <Accordion.Item eventKey='2'>
+          <Accordion.Item eventKey="2">
             <Accordion.Header>
               A gordofobia no ambiente de trabalho
             </Accordion.Header>
             <Accordion.Body>
-              <img src='https://saude.abril.com.br/wp-content/uploads/2022/03/obesidade-1.jpg?quality=85&strip=info&resize=680,453'></img>
+              <img src="https://saude.abril.com.br/wp-content/uploads/2022/03/obesidade-1.jpg?quality=85&strip=info&resize=680,453"></img>
               <p>
                 Vivemos – e não é de hoje – em uma sociedade que impõe um padrão
                 estético que parece incluir a magreza como um valor. Ser magra é
                 visto como algo saudável, bonito e, pasme, até capaz de gerar
-                oportunidades de <strong>trabalho</strong>. Quando alguém{" "}
+                oportunidades de <strong>trabalho</strong>. Quando alguém{' '}
                 <strong>perde peso</strong>, é logo elogiado por amigos,
                 parentes e colegas de escritório.
               </p>
@@ -203,11 +202,11 @@ export function Dashboard() {
               <p>
                 Apesar de essa “lógica” ser cruel e absolutamente equivocada,
                 verdade é que cotidianamente ela induz à ocorrência de uma série
-                de situações de{" "}
+                de situações de{' '}
                 <strong>
                   desrespeito, afronta à dignidade, à intimidade, à vida
                   privada, à honra e à imagem
-                </strong>{" "}
+                </strong>{' '}
                 de milhões de pessoas.
               </p>
               <p>
@@ -254,7 +253,7 @@ export function Dashboard() {
                   materializada em preconceito, intolerância ou exclusão. Sendo
                   uma forma de discriminação, cabe à empresa e ao seu time
                   coibir comportamentos dessa natureza no ambiente de trabalho.
-                  Essa é uma <strong>obrigação legal</strong> e um{" "}
+                  Essa é uma <strong>obrigação legal</strong> e um{' '}
                   <strong>dever constitucional</strong> previsto em vários
                   artigos da legislação brasileira.
                 </p>
@@ -263,7 +262,7 @@ export function Dashboard() {
                   trabalhistas na medida em que toda prática discriminatória e
                   limitativa de acesso ao trabalho pode levar à obrigação de
                   indenizar a vítima da conduta. Sim, o combate à gordofobia
-                  conta com o suporte da{" "}
+                  conta com o suporte da{' '}
                 </p>
               </div>
             </Accordion.Body>
@@ -271,5 +270,5 @@ export function Dashboard() {
         </Accordion>
       </Container>
     </>
-  );
+  )
 }
